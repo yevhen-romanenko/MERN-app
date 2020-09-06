@@ -1,0 +1,36 @@
+{
+  "name": "mern-app",
+  "version": "1.0.0",
+  "description": "MERN stack",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "server": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yevhen-romanenko/MERN-app.git"
+  },
+  "keywords": [
+    "mern",
+    "react",
+    "node",
+    "mongodb",
+    "express",
+    "js"
+  ],
+  "author": "Yevhen Romanenko <strkromik@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yevhen-romanenko/MERN-app/issues"
+  },
+  "homepage": "https://github.com/yevhen-romanenko/MERN-app#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.3"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.4"
+  }
+}
