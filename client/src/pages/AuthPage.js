@@ -17,6 +17,10 @@ export const AuthPage = () => {
     clearError();
   }, [error, message, clearError]);
 
+  useEffect(() => {
+      window.M.updateTextFields()
+  }, [])
+
   const changeHandler = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value });
   };
@@ -40,7 +44,7 @@ export const AuthPage = () => {
   return (
     <div className="row">
       <div className="col s6 offset-s3">
-        <h1>Minimize Your Link</h1>
+        <h1>Minimilize Your Link</h1>
         <div className="card blue-grey darken-1">
           <div className="card-content white-text">
             <span className="card-title">Autorization</span>
