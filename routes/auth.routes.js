@@ -9,9 +9,11 @@ const router = Router();
 //   /api/auth/register
 router.post(
   '/register',
-  [check('email', 'Entered mail is uncorrect!').isEmail(), check('password', 'Password must contain at least 6 symbols!').isLength({ min: 6 })],
+  [check('email', 'Entered email is incorrect!').isEmail(), check('password', 'Password must contain at least 6 symbols!').isLength({ min: 6 })],
   async (req, res) => {
     try {
+      // console.log('Body:', req.body);
+
       const errors = validationResult(req);
 
       if (!errors.isEmpty()) {
@@ -44,7 +46,7 @@ router.post(
 //   /api/auth/login
 router.post(
   '/login',
-  [check('email', 'Enter correct email').normalizeEmail.isEmail(), check('password', 'Enter password').exists()],
+  [check('email', 'Enter correct email').normalizeEmail().isEmail(), check('password', 'Enter password').exists()],
 
   async (req, res) => {
     try {
@@ -65,7 +67,7 @@ router.post(
         res.status(400).json({ message: 'User doesnt exist with this mail!' });
       }
 
-      const isMatch = await bcrypt.compare(password, User.password);
+      const isMatch = await bcrypt.compare(password, user.password);
 
       if (!isMatch) {
         res.status(400).json({ message: 'Incorrect password, try again' });
@@ -76,6 +78,7 @@ router.post(
       const token = jwt.sign({ userId: user.id }, config.get('jwtSecret'), { expiresIn: '1h' });
 
       res.json({ token, userId: user.id });
+
     } catch (e) {
       res.status(500).json({ message: 'Something going wrong, try again' });
     }
