@@ -15,7 +15,7 @@ router.post('/generate', auth, async (req, res) => {
 
         const existLink = await Link.findOne({ from });
 
-        if (!existLink) {
+        if (existLink) {
             return res.json({ link: existLink });
         }
 
