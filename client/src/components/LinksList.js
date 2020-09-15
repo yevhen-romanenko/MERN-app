@@ -12,7 +12,8 @@ export const LinksList = ({ links }) => {
                     <th>#</th>
                     <th>Source link</th>
                     <th>Minimized</th>
-                    <th>Open</th>
+                    <th>Clicks</th>
+                    <th>Open Link</th>
                 </tr>
             </thead>
 
@@ -23,8 +24,9 @@ export const LinksList = ({ links }) => {
                             <td>{index + 1}</td>
                             <td>{link.from}</td>
                             <td>{link.to}</td>
+                            <td>{link.clicks}</td>
                             <td>
-                                <Link to={`/detail/${link._id}`}>Open</Link>
+                                <Link to={`/detail/${link._id}`}>Open Details</Link>
                             </td>
                         </tr>
                     );

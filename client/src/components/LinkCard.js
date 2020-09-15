@@ -3,10 +3,10 @@ import React from 'react';
 export const LinkCard = ({ link }) => {
     return (
         <>
-            <h2>Link</h2>
+            <h2>Link Details</h2>
 
             <p>
-                Your new minimized link :{' '}
+                Minimilized link :{' '}
                 <a href={link.to} target="_blank" rel="noopener noreferrer">
                     {link.to}
                 </a>
@@ -18,10 +18,10 @@ export const LinkCard = ({ link }) => {
                 </a>
             </p>
             <p>
-                Click counter : <strong>{link.clicks}</strong>
+                Clicks : <strong>{link.clicks}</strong>
             </p>
             <p>
-                Data creation : <strong>{new Date(link.date).toLocaleDateString()}</strong>{' '}
+                Data of creation : <strong>{new Date(link.date).toLocaleDateString()}</strong>{' '}
             </p>
         </>
     );
